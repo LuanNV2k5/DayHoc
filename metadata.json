@@ -1,0 +1,8 @@
+{
+  "name": "Remix Mô phỏng Thuật toán Sắp xếp - Tin học 11",
+  "description": "Học liệu dạy học Bài 21: Các thuật toán sắp xếp đơn giản (Sắp xếp chèn, chọn, nổi bọt) - Tin học 11 Kết nối tri thức với cuộc sống",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
