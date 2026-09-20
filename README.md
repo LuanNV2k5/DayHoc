@@ -85,7 +85,42 @@ npm run build
 
 ---
 
-## 5. Danh sách phím tắt cho Giáo viên khi đứng lớp
+## 5. Hướng dẫn triển khai lên GitHub Pages (Miễn phí & Tự động)
+
+Dự án đã được cấu hình tối ưu sẵn để chạy trực tiếp trên GitHub Pages mà không bị lỗi đường dẫn (màn hình trắng 404):
+- Cấu hình `base: './'` trong `vite.config.ts` giúp tải đúng tài nguyên static từ bất kỳ tên repository nào.
+- File workflow `.github/workflows/deploy.yml` tự động build và deploy mỗi khi push code lên GitHub.
+- Cài sẵn công cụ `gh-pages` cho ai muốn deploy thủ công qua dòng lệnh.
+
+### Cách 1: Tự động hoàn toàn bằng GitHub Actions (Khuyên dùng - Đơn giản nhất)
+1. Tạo repository mới trên GitHub (ví dụ: `mo-phong-sap-xep`).
+2. Đẩy toàn bộ mã nguồn lên repository:
+   ```bash
+   git init
+   git add .
+   git commit -m "Cấu hình chạy GitHub Pages"
+   git branch -M main
+   git remote add origin https://github.com/<tai-khoan-cua-ban>/<ten-repo>.git
+   git push -u origin main
+   ```
+3. Trên giao diện GitHub của repository:
+   - Vào mục **Settings** -> chọn tab **Pages** (ở cột bên trái).
+   - Tại mục **Build and deployment** -> **Source**, đổi từ *Deploy from a branch* sang **GitHub Actions**.
+4. GitHub Actions sẽ tự động kích hoạt workflow, đóng gói và cung cấp đường dẫn web trực tiếp dạng:  
+   `https://<tai-khoan-cua-ban>.github.io/<ten-repo>/`
+
+### Cách 2: Triển khai thủ công bằng lệnh `npm run deploy`
+Nếu bạn muốn build và đẩy lên nhánh `gh-pages`:
+1. Mở file `package.json`, thêm trường `"homepage": "https://<tai-khoan-cua-ban>.github.io/<ten-repo>"`
+2. Chạy lệnh:
+   ```bash
+   npm run deploy
+   ```
+3. Vào **Settings** -> **Pages** trên GitHub -> chọn Source là *Deploy from a branch* và chọn branch `gh-pages` -> bấm **Save**.
+
+---
+
+## 6. Danh sách phím tắt cho Giáo viên khi đứng lớp
 
 - **Phím Space (Cách):** Bật / Tạm dừng chạy tự động.
 - **Phím Mũi tên phải (→):** Thực hiện một bước tiếp theo.
